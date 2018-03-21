@@ -73,8 +73,30 @@ public:
         }
     }
   }
-  bool dequeue ()
+  bool dequeue () {
+    bool test;
+    test = isEmpty();
+    if (test == true) {
+      cout << "The queue is empty" << endl;
+      return false;
+    }
+    else {
+      Node<T>* temp;
+      temp = head->next;
+      delete head;
+      head = temp;
+      return true;
+    }
+  }
+  T peekFront() {
+    return head->item;
+  }
 };
+
+int main() {
+  
+  return 0;
+}
 
 
 /*
