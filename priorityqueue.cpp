@@ -94,161 +94,38 @@ public:
 };
 
 int main() {
-  
+    PriorityQueue<string> xyz;
+    bool t;
+    t = xyz.isEmpty();
+    if (t == true) {
+    cout << "the queue is empty"<< endl;
+    }
+    else {
+        cout << "the queue has some stuff in it" << endl;
+    }
+    cout << "we're now going to add some stuff into this queue" << endl;
+
+    t = xyz.enqueue("hey", 1);
+    t = xyz.enqueue("hey", 1);
+    t = xyz.enqueue("you", 1);
+    t = xyz.enqueue("you", 1);
+    t = xyz.enqueue("i", 1);
+    t = xyz.enqueue("dont", 1);
+    t = xyz.enqueue("like", 1);
+    t = xyz.enqueue("your", 1);
+    t = xyz.enqueue("girlfriend", 1);
+
+    t = xyz.isEmpty();
+    if (t == true) {
+    cout << "the queue is empty"<< endl;
+    }
+    else {
+        cout << "the queue has some stuff in it" << endl;
+    }
+    cout << "the first string in this queue is: " << xyz.peekFront() << endl;
+    cout << "we're now going to dequeue twice" << endl;
+    t = xyz.dequeue();
+    t = xyz.dequeue();
+    cout << "the first string in this queue is: " << xyz.peekFront() << endl;
   return 0;
 }
-
-
-/*
-template <class T>
-class List {
-  Node<T>* head;
-  Node<T>* tail;
-  int itemCount = 0;
-public:
-  List() {
-    head = nullptr;
-    tail = nullptr;
-  };
-  bool isEmpty() {
-    Node<T>* temp;
-    temp = head;
-    if (temp == nullptr) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-  bool add(T newEntry) {
-// adds to end of list
-    if (head == nullptr) {
-      Node<T>* a = new Node<T>(newEntry);
-      head = a;
-      tail = a;
-      itemCount++;
-      return true;
-    }
-    else {
-      Node<T>* b = new Node<T>(newEntry);
-      tail->next = b;
-      b->prev = tail;
-      tail = b;
-      itemCount++;
-      return true;
-    }
-  }
-  bool remove(T anEntry) {
-    if (head == nullptr) {
-      cout << "The list is empty, cannot remove" << endl;
-      return false;
-    }
-    else if (head->item == anEntry) {
-        delete head;
-        cout << "The entry: " << anEntry << " has been successfully removed." << endl;
-        return true;
-    }
-    else {
-      Node<T>* temp;
-      temp = head;
-      int counter = 0;
-      while (temp->item != anEntry) {
-        temp = temp->next;
-        counter++;
-        if (counter > itemCount) {
-          cout << "The list does not contain " << anEntry << endl;
-          return false;
-        }
-      }
-      Node<T>* n;
-      n = temp->prev;
-      n->next = temp->next;
-      if (temp->next == nullptr) {
-        delete temp;
-        tail = n;
-        itemCount--;
-        cout << "The entry: " << anEntry << " has been successfully removed." << endl;
-        return true;
-      }
-      else {
-        delete temp;
-        itemCount--;
-        cout << "The entry: " << anEntry << " has been successfully removed." << endl;
-        temp->next->prev = n;
-        return true;
-      }
-    }
-  }
-  void clear() {
-    Node<T>* n;
-    n = head;
-    while (n) {
-      cout << n->item << endl;
-      if(n->prev) {
-        delete n->prev;
-      }
-      n = n->next;
-    }
-    delete n;
-    head = nullptr;
-    tail = nullptr;
-    itemCount = 0;
-    cout << "The list has been successfully cleared" << endl;
-  }
-  int getFrequencyOf(T anEntry) {
-    int counter = 0;
-    Node<T>* a;
-    a = head;
-    for (int i = 0; i < itemCount; i++) {
-        if (a->item == anEntry) {
-            counter++;
-        }
-        a = a->next;
-    }
-    return counter;
-  }
-  bool contains(T anEntry) {
-    Node<T>* a;
-    a = head;
-    for (int i = 0; i < itemCount; i++) {
-        if (a->item == anEntry) {
-            return true;
-        }
-        a = a->next;
-    }
-    return false;
-  }
-  int returnCount() {
-    return itemCount;
-  }
-  T returnHead() {
-    return head->item;
-  }
-  T returnTail() {
-    return tail->item;
-  }
-
-  Node<T>* getHead() {
-    return head;
-  }
-  Node<T>* getTail() {
-    return tail;
-  }
-  void print() {
-    Node<T>* a;
-    a = head;
-    for (int i = 0; i < itemCount; i++) {
-      cout << a->item << endl;
-      a = a->next;
-    }
-  }
-  void printReverse() {
-    Node<T>* a;
-    a = tail;
-    for (int i = 0; i < itemCount; i++) {
-      cout << a->item << endl;
-      a = a->prev;
-    }
-  }
-};
-*/
